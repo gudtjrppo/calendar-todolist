@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div id="calendar">
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <h2 id="currentMonth"></h2>
+                <div class="calendar-controls">
+                    <button id="prevBtn">이전</button>
+                    <button id="today-date">오늘</button>
+                    <button id="nextBtn">다음</button>
+                </div>
+            </div>
+            <div class="calendar-days">
+                <div class="day">일</div>
+                <div class="day">월</div>
+                <div class="day">화</div>
+                <div class="day">수</div>
+                <div class="day">목</div>
+                <div class="day">금</div>
+                <div class="day">토</div>
+            </div>
+            <div class="calendar-dates" id="calendarDates"></div>
+        </div>
+
+        <div class="calendar-write">
+            <div class="writeInfo" id="date-info"></div>
+            <div class="writeItem">
+                <input type="text" id="new-event" placeholder="새로운 이벤트">
+            </div>
+            <div class="writeItem">
+                <input type="date" id="new-date" placeholder="종료 날짜를 선택해주세요.">
+            </div>
+            <div class="writeItem">
+                <textarea id="new-memo" placeholder="메모, URL를 작성"></textarea>
+            </div> 
+            <div class="buttonItem">
+                <button id="add-button">추가</button>
+                <button id="close-button">닫기</button>
+            </div>
+
+        </div>
+    </div>
+    <script src="./js/calendar.js"></script>
+</body>
+</html>

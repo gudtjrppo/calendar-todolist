@@ -1,0 +1,177 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{background:#1d1b1b;}
+
+
+#calendar{
+    display:flex;
+    .calendar-container{
+        width:100%;
+        transition: width .3s;
+    }
+    .calendar-write{
+        width:0;
+        padding:30px 15px;
+        visibility: hidden;
+        transition: width .3s;
+
+        .writeInfo{
+            color:#fff;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        input{
+            background: none;
+            border:0;
+            border-bottom:1px solid #555;
+            margin-top: 10px;
+            line-height: 44px;
+            font-size: 15px;
+            color:#fff;
+            &::placeholder{
+                color:#666;
+            }
+        }
+
+        textarea{
+            background: none;
+            border:0;
+            border-bottom:1px solid #555;
+            margin-top: 10px;
+            line-height: 34px;
+            height:150px;
+            font-size: 15px;
+            width:100%;
+            color:#fff;
+            &::placeholder{
+                color:#666;
+            }
+        }
+        
+        .buttonItem{
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button{
+            border:0;
+            border-radius: 10px;
+            padding:10px 20px;
+        }
+        #add-button{
+            background: #63ea1a;
+        }
+        #close-button{
+            background:#f8f8f8;
+        }
+    }
+
+    &.on{
+        .calendar-container{
+            width:calc(100% - 200px);
+            transition: width .3s;
+        }
+        .calendar-write{
+            width:200px;
+            visibility: visible;
+            transition: width .3s;
+        }
+    }
+}
+
+
+.calendar-container{
+    background:#1d1b1b;
+    color: #fff;
+
+    .calendar-header{
+        padding:20px;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+
+        #currentMonth{
+            font-size:28px;
+            font-weight: bold;
+        }// 년, 월 표시 타이틀
+
+        .calendar-controls{
+            display:flex;
+            gap:10px;
+
+            button{
+                padding:5px 10px;
+            }// 버튼 전체
+        } // 이전, 오늘, 다음 버튼
+    }// 캘린더 상단
+
+
+
+    .calendar-days{
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        border-bottom: 1px solid #444;
+
+        .day{
+            text-align: right;
+            padding:10px;
+        }// 요일 표시
+    }// 요일 설정
+
+    .calendar-dates{
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+
+        .date{
+            overflow-x:auto;
+            padding:10px;
+            height:130px;
+            border-bottom: 1px solid #444;
+            border-right: 1px solid #444;
+
+            .day{
+                text-align: right;
+
+                span{
+                    width:30px;
+                    height:30px;
+                    display:inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius:50%;
+
+                    &.today{
+                        background: red;
+                    }
+                }// days
+            }
+
+            &:nth-child(7n - 6){
+                background:#222;
+            }
+
+            &:nth-child(7n){
+                border-right:0;
+                background: #222;
+            }// 7번째 아이템 마다
+
+            .taskElem{
+                background:#555;
+                padding:3px 5px;
+                margin-bottom: 5px;
+                border-radius: 5px;
+                font-size:14px;
+                overflow:hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                word-break: break-all;
+                cursor: pointer;
+            }// 일정 추가 엘리먼트
+        }// day element item
+    }// 캘린더의 days
+}
